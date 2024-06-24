@@ -26,3 +26,31 @@ for(let v in myNewArray){
 // 2
 // 3
 // 4
+
+// Q2, implement a custom forEach in javaScript
+
+Array.prototype.customForEachOne = function(callback){
+    for(let i = 0; i < this.length; i++){
+        callback(this[i], i, this);
+    }
+}
+// this => array
+// i => index
+
+
+ Array.prototype.forEachtwo = function(callback, thisContext){
+    if(typeof callback !== "function"){
+        throw`This not a function`;
+    }
+
+    let length = this.length;
+    let i = 0;
+
+    while(i < length){
+        if(this.hasOwnProperty){
+            callback.call(thisContext, this[i], i, this);
+        }
+        i++
+    }
+
+ }
